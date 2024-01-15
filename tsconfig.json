@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@tsconfig/node-lts-strictest-esm/tsconfig.json",
+  "module": "ESNext",
+  "moduleResolution": "node16",
+  "compilerOptions": {},
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true,
+    "experimentalResolver": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
