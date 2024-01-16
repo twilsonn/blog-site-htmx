@@ -1,12 +1,32 @@
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Example App</title>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <link rel="stylesheet" href="/static/index.css" />
-
+    <script src="/static/htmx.min.js"></script>
   </head>
-  <body>
-    {{{body}}}
+  <body class="grid grid-cols-4 w-full min-h-full">
+
+    <aside class="col-span-1 px-6 relative">
+      <div class="sticky inset-0 flex justify-end pt-14">
+        <nav>
+          navigation menu
+        </nav>
+      </div>
+    </aside>
+
+    <main class="col-span-2 border-x px-6">
+      {{{body}}}
+    </main>
+
+    <aside class="col-span-1 px-6 relative">
+      <div class="sticky inset-0 pt-14">
+        <nav>
+          navigation menu
+        </nav>
+      </div>
+    </aside>
+
   </body>
 </html>
