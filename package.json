@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "exports": "./src/index.ts",
+  "exports": "./index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:node": "nodemon",
@@ -22,10 +22,14 @@
   "devDependencies": {
     "@tsconfig/node-lts-strictest-esm": "^18.12.1",
     "@tsconfig/node20": "^20.1.2",
+    "@types/connect-livereload": "^0.6.3",
     "@types/express": "^4.17.21",
+    "@types/livereload": "^0.9.5",
     "@types/lowdb": "^1.0.15",
     "@types/node": "^20.11.2",
     "concurrently": "^8.2.2",
+    "connect-livereload": "^0.6.1",
+    "livereload": "^0.9.3",
     "nodemon": "^3.0.2",
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",

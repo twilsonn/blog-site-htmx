@@ -1,7 +1,8 @@
 {
     "watch": [
-        "src"
+        "src",
+        "views"
     ],
-    "ext": "ts",
+    "ext": "ts,handlebars",
     "exec": "pnpm tsx ./src/index.ts"
 }

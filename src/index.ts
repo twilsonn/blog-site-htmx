@@ -1,6 +1,11 @@
 import express from "express";
 import { engine } from "express-handlebars";
 import { JSONFilePreset } from "lowdb/node";
+import path from "node:path";
+import livereload from "livereload";
+import connectLivereload from "connect-livereload";
+
+const __dirname = path.resolve();
 
 const app = express();
 const port = 3000;
@@ -17,6 +22,18 @@ declare global {
   }
 }
 
+const liveReloadServer = livereload.createServer();
+
+liveReloadServer.watch(path.join(__dirname, "public"));
+
+liveReloadServer.server.once("connection", () => {
+  setTimeout(() => {
+    liveReloadServer.refresh("/");
+  }, 100);
+});
+
+app.use(connectLivereload());
+
 // add database instance to request
 app.use((req, _res, next) => {
   req.db = db;
@@ -26,14 +43,14 @@ app.use((req, _res, next) => {
 // setup handlebars
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
-app.set("views", "./views");
+
+app.set("views", path.join(__dirname, "views"));
 
 // setup static folder
 app.use("/static", express.static("public"));
 
 // routes
 app.get("/", (req, res) => {
-  console.log(req.db);
   res.render("index");
 });
 
